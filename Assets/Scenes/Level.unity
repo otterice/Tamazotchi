@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 659276943}
+  GameManager: {fileID: 659276941}
   currentHunger: {fileID: 326137414}
   currentLevel: {fileID: 634601750}
   hungerText: {fileID: 1429218319}

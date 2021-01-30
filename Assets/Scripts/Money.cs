@@ -9,6 +9,10 @@ public class Money : MonoBehaviour
 
     public float money = 100f;
 
+    private void Start() {
+        money = PlayerPrefs.GetFloat("moneyPref");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +21,7 @@ public class Money : MonoBehaviour
 
     public void UpdateMoney(float multipler) {
         money += 10 + (2 * multipler);
+        PlayerPrefs.SetFloat("moneyPref", money);
     }
 
     public float GetMoney() {
@@ -26,6 +31,7 @@ public class Money : MonoBehaviour
     public bool TryRemoveMoney(int moneyToRemove) {
         if (money >= moneyToRemove) {
             money -= moneyToRemove;
+            PlayerPrefs.SetFloat("moneyPref", money);
             return true;
         }
         else {

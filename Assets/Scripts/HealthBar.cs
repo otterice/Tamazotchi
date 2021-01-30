@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Money money;
+    public GameObject GameManager;
 
     public Image currentHunger;
     public Image currentLevel;
@@ -15,6 +16,7 @@ public class HealthBar : MonoBehaviour
     public Text levelText;
 
     private float hunger = 100f;
+    //percent level
     private float level = 0f;
     private float characterLevel = 1f;
     private float max = 100f;
@@ -28,7 +30,14 @@ public class HealthBar : MonoBehaviour
         //Button Listener for Hunger
         Button btn1 = Feed.GetComponent<Button>();
         btn1.onClick.AddListener(FeedThePet);
-        money = GetComponent<Money>();
+        GameObject GameManager = this.GameManager;
+        money = GameManager.GetComponent<Money>();
+
+        hunger = PlayerPrefs.GetFloat("hungerPref", 100f);
+        characterLevel = PlayerPrefs.GetFloat("levelPref", 1f);
+        level = PlayerPrefs.GetFloat("levelPercentPref", 0f);
+
+        levelText.text = "Level " + characterLevel;
 
         UpdateHungerBar();
     }
@@ -49,6 +58,7 @@ public class HealthBar : MonoBehaviour
         float ratio = hunger / max;
         currentHunger.rectTransform.localScale = new Vector3(ratio, 1, 1);
         hungerText.text = (ratio * 100).ToString("0") + '%';
+        PlayerPrefs.SetFloat("hungerPref", hunger);
     }
 
     private void UpdateLevelBar() {
@@ -56,9 +66,11 @@ public class HealthBar : MonoBehaviour
         if (level == 100) {
             money.UpdateMoney(characterLevel);
             characterLevel++;
+            PlayerPrefs.SetFloat("levelPref", characterLevel);
             level = 0;
             levelText.text = "Level " + characterLevel;
         }
+        PlayerPrefs.SetFloat("levelPercentPref", level);
         currentLevel.rectTransform.localScale = new Vector3(ratio, 1, 1);
         levelPercent.text = (ratio * 100).ToString("0") + '%';
     }
