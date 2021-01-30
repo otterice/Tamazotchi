@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 184771170}
   - component: {fileID: 184771169}
   m_Layer: 5
-  m_Name: SkinInShop (2)
+  m_Name: anime_petr2InShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,7 +920,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 879954229}
   - {fileID: 712577787}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -943,7 +942,7 @@ GameObject:
   - component: {fileID: 575107656}
   - component: {fileID: 575107655}
   m_Layer: 5
-  m_Name: SkinInShop (3)
+  m_Name: anime_petr3InShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,8 +1344,9 @@ RectTransform:
   - {fileID: 2096170409}
   - {fileID: 434547566}
   - {fileID: 223894035}
+  - {fileID: 879954229}
   m_Father: {fileID: 466522042}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.13116471, g: 0.11801351, b: 0.49056602, a: 0.70980394}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1553,12 +1553,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 466522042}
-  m_RootOrder: 0
+  m_Father: {fileID: 712577787}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -170, y: -82}
+  m_AnchoredPosition: {x: -167, y: -82}
   m_SizeDelta: {x: 263.26074, y: 101.566895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879954230
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 1318785803}
   - component: {fileID: 1318785802}
   m_Layer: 5
-  m_Name: SkinInShop (1)
+  m_Name: anime_petr1InShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2285,7 +2285,7 @@ GameObject:
   - component: {fileID: 1756243382}
   - component: {fileID: 1756243381}
   m_Layer: 5
-  m_Name: SkinInShop
+  m_Name: default_petrInShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

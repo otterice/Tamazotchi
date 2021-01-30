@@ -16,7 +16,12 @@ public class SkinInShop : MonoBehaviour
 
     private void Awake() {
         skinImage.sprite = skinInfo.skinSprite;
+        buttonText.text = "$" + skinInfo.skinPrice;
         IsSkinUnlocked();
+        if (skinInfo.skinPrice == 0) {
+            isSkinUnlocked = true;
+            buttonText.text = "Equip";
+        }
     }
 
     private void IsSkinUnlocked() {
