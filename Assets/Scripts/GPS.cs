@@ -21,7 +21,7 @@ public class GPS : MonoBehaviour
     {
         if(!Input.location.isEnabledByUser)
         {
-            Debug.Log("User has not enabled GSP");
+            Debug.Log("User has not enabled GPS");
             yield break;
         }
 

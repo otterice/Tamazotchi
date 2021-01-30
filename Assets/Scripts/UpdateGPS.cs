@@ -8,7 +8,7 @@ public class UpdateGPS : MonoBehaviour
 {
 
     public Text coordinates;
- 
+
     // Update is called once per frame
     void Update()
     {
