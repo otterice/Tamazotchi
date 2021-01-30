@@ -14,8 +14,7 @@ public class Money : MonoBehaviour
     public float amtOfLevelUpMoney = 0f;
 
     private void Start() {
-        money = PlayerPrefs.GetFloat("moneyPref");
-        money = 100f;
+        money = PlayerPrefs.GetFloat("moneyPref", money);
         levelUpMoneyText.enabled = true;
     }
 

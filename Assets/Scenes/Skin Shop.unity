@@ -1084,7 +1084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 879954230}
+  levelUpMoneyText: {fileID: 0}
   money: 100
+  levelUpMoney: 0
+  amtOfLevelUpMoney: 0
 --- !u!4 &620054361
 Transform:
   m_ObjectHideFlags: 0

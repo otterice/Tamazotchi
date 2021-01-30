@@ -5,58 +5,67 @@ using UnityEngine.UI;
 
 public class GPS : MonoBehaviour
 {
-    public static GPS Instance { set; get; }
-    public float latitude;
-    public float longitude;
+    public GameObject longText;
+    public GameObject latText;
 
+    public Text longitudeText;
+    public Text latitudeText;
 
-    void Start()
-    {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        StartCoroutine(StartLocationService());      
-    }
+    IEnumerator coroutine;
 
-    private IEnumerator StartLocationService()
-    {
-#if UNITY_EDITOR
-        //Wait until Unity connects to the Unity Remote, while not connected, yield return null
-        while (!UnityEditor.EditorApplication.isRemoteConnected) {
-            yield return null;
-        }
-#endif
+    IEnumerator Start() {
+        coroutine = updateGPS();
+
+        Text longitudeText = longText.GetComponent<Text>();
+        Text latitudeText = latText.GetComponent<Text>();
+
         if (!Input.location.isEnabledByUser)
-        {
-            Debug.Log("User has not enabled GPS");
             yield break;
-        }
 
         Input.location.Start();
-        //Timeout 
+
         int maxWait = 20;
-
-
-        while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
-        {
+        while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0) {
             yield return new WaitForSeconds(1);
             maxWait--;
         }
 
-        if(maxWait <= 0)
-        {
-            Debug.Log("Timed out");
+        if (maxWait < 1) {
+            print("Timed out");
             yield break;
         }
 
-        if(Input.location.status == LocationServiceStatus.Failed)
-        {
-            Debug.Log("Unable to determine device location");
+
+        if (Input.location.status == LocationServiceStatus.Failed) {
+            print("Unable to determine device location");
             yield break;
         }
+        else {
+            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            longitudeText.text = "Longitude: " + Input.location.lastData.longitude;
+            latitudeText.text = "Latitude: " + Input.location.lastData.latitude;
+            StartCoroutine(coroutine);
+        }
+    }
 
-        latitude = Input.location.lastData.latitude;
-        longitude = Input.location.lastData.longitude;
+    IEnumerator updateGPS() {
+        float UPDATE_TIME = 3f; //Every  3 seconds
+        WaitForSeconds updateTime = new WaitForSeconds(UPDATE_TIME);
 
-        yield break;
+        while (true) {
+            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            longitudeText.text = "Longitude: " + Input.location.lastData.longitude;
+            latitudeText.text = "Latitude: " + Input.location.lastData.latitude;
+            yield return updateTime;
+        }
+    }
+
+    void stopGPS() {
+        Input.location.Stop();
+        StopCoroutine(coroutine);
+    }
+
+    void OnDisable() {
+        stopGPS();
     }
 }

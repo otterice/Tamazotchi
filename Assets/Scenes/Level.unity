@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 56582434}
   - component: {fileID: 56582433}
   m_Layer: 5
-  m_Name: Text
+  m_Name: long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,8 +259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96, y: 423}
-  m_SizeDelta: {x: 517.13, y: 252.3039}
+  m_AnchoredPosition: {x: -96, y: 372.13672}
+  m_SizeDelta: {x: 517.13, y: 150.5775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56582433
 MonoBehaviour:
@@ -295,7 +295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "LAT: \nLONG:"
+  m_Text: 'LONG:'
 --- !u!222 &56582434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,7 @@ RectTransform:
   - {fileID: 406277900}
   - {fileID: 57866419}
   - {fileID: 56582431}
+  - {fileID: 1767227470}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1652,12 +1653,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341416967}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f3da54a85f4b6344a89ff9b0879fbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coordinates: {fileID: 56582433}
+  gps: {fileID: 0}
 --- !u!114 &1341416972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,8 +1672,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a410828bbcd3f04a9b2f96c0b1bf895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latitude: 0
-  longitude: 0
+  longText: {fileID: 56582430}
+  latText: {fileID: 1767227469}
+  longitudeText: {fileID: 56582433}
+  latitudeText: {fileID: 1767227471}
 --- !u!1 &1349549775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +1974,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552050759}
+  m_CullTransparentMesh: 1
+--- !u!1 &1767227469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767227470}
+  - component: {fileID: 1767227472}
+  - component: {fileID: 1767227471}
+  m_Layer: 5
+  m_Name: lat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1767227470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767227469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717821374}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -96, y: 423}
+  m_SizeDelta: {x: 517.13, y: 252.3039}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1767227471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767227469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 6
+    m_MaxSize: 64
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "LAT: \n"
+--- !u!222 &1767227472
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767227469}
   m_CullTransparentMesh: 1
 --- !u!1 &1949417403
 GameObject:
