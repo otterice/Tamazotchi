@@ -19,7 +19,13 @@ public class GPS : MonoBehaviour
 
     private IEnumerator StartLocationService()
     {
-        if(!Input.location.isEnabledByUser)
+#if UNITY_EDITOR
+        //Wait until Unity connects to the Unity Remote, while not connected, yield return null
+        while (!UnityEditor.EditorApplication.isRemoteConnected) {
+            yield return null;
+        }
+#endif
+        if (!Input.location.isEnabledByUser)
         {
             Debug.Log("User has not enabled GPS");
             yield break;
