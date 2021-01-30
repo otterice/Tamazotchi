@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public Money money;
+
     public Image currentHunger;
     public Image currentLevel;
 
@@ -26,6 +28,7 @@ public class HealthBar : MonoBehaviour
         //Button Listener for Hunger
         Button btn1 = Feed.GetComponent<Button>();
         btn1.onClick.AddListener(FeedThePet);
+        money = GetComponent<Money>();
 
         UpdateHungerBar();
     }
@@ -51,6 +54,7 @@ public class HealthBar : MonoBehaviour
     private void UpdateLevelBar() {
         float ratio = level / max;
         if (level == 100) {
+            money.UpdateMoney(characterLevel);
             characterLevel++;
             level = 0;
             levelText.text = "Level " + characterLevel;
@@ -66,7 +70,5 @@ public class HealthBar : MonoBehaviour
         if (hunger > max) {
             hunger = max;
         }
-
-
     }
 }
