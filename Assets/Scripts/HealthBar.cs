@@ -24,6 +24,8 @@ public class HealthBar : MonoBehaviour
     //percent level
     public float level = 0f;
     public float characterLevel = 1f;
+    public int priceOfFood = 5;
+
     private float max = 100f;
 
     public Button Feed;
@@ -104,8 +106,11 @@ public class HealthBar : MonoBehaviour
 
     void FeedThePet() {
         Debug.Log("Feed has been clicked");
-        hunger += 10;
-        level += 10f;
+        if (money.TryRemoveMoney(priceOfFood)) {
+            hunger += 10;
+            level += 10f;
+        }
+        
         if (hunger > max) {
             hunger = max;
         }
