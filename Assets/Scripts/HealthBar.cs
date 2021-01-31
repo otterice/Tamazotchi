@@ -8,38 +8,51 @@ public class HealthBar : MonoBehaviour
     public Money money;
     public GameObject GameManager;
 
+    public GameObject panel;
+
     public Image currentHunger;
+    public Image currentHealth;
     public Image currentLevel;
 
     public Text hungerText;
+    public Text healthText;
     public Text levelPercent;
     public Text levelText;
 
-    private float hunger = 100f;
+    public float hunger = 100f;
+    public float health = 100f;
     //percent level
-    private float level = 0f;
-    private float characterLevel = 1f;
+    public float level = 0f;
+    public float characterLevel = 1f;
     private float max = 100f;
 
     public Button Feed;
 
     public Text GameOverText;
 
-    private void Start()
-    {
+    private void Start() {
         //Button Listener for Hunger
         Button btn1 = Feed.GetComponent<Button>();
         btn1.onClick.AddListener(FeedThePet);
         GameObject GameManager = this.GameManager;
         money = GameManager.GetComponent<Money>();
-
-        hunger = PlayerPrefs.GetFloat("hungerPref", 100f);
-        characterLevel = PlayerPrefs.GetFloat("levelPref", 1f);
-        level = PlayerPrefs.GetFloat("levelPercentPref", 0f);
+        createPlayerPrefs();
 
         levelText.text = "Level " + characterLevel;
 
         UpdateHungerBar();
+    }
+
+    public void deletePlayerPrefs() {
+        Debug.Log("clicked delete");
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void createPlayerPrefs() {
+        hunger = PlayerPrefs.GetFloat("hungerPref", 100f);
+        health = PlayerPrefs.GetFloat("healthPref", 100f);
+        characterLevel = PlayerPrefs.GetFloat("levelPref", 1f);
+        level = PlayerPrefs.GetFloat("levelPercentPref", 0f);
     }
 
     // Update is called once per frame
@@ -48,10 +61,17 @@ public class HealthBar : MonoBehaviour
         hunger -= 0.2f * Time.deltaTime;
         if (hunger < 0) {
             hunger = 0;
+            health -= 0.2f * Time.deltaTime;
+        }
+
+        if (health < 0) {
+            health = 0;
+            panel.gameObject.SetActive(true);
         }
 
         UpdateHungerBar();
         UpdateLevelBar();
+        UpdatHealthBar();
     }
 
     private void UpdateHungerBar() {
@@ -59,6 +79,13 @@ public class HealthBar : MonoBehaviour
         currentHunger.rectTransform.localScale = new Vector3(ratio, 1, 1);
         hungerText.text = (ratio * 100).ToString("0") + '%';
         PlayerPrefs.SetFloat("hungerPref", hunger);
+    }
+
+    private void UpdatHealthBar() {
+        float ratio = health / max;
+        currentHealth.rectTransform.localScale = new Vector3(ratio, 1, 1);
+        healthText.text = (ratio * 100).ToString("0") + '%';
+        PlayerPrefs.SetFloat("healthPref", health);
     }
 
     private void UpdateLevelBar() {
