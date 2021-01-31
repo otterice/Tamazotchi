@@ -5,6 +5,12 @@ api_key = "AIzaSyCELlWxGJ1mTz443EBYTip2eQYILy5eQTE"
 currentDay = datetime.datetime.today().weekday()
 currentHour = datetime.datetime.now().hour 
 
+## Gets rid of newlines from read in text file containing user location
+with open('../../LATLON.txt', 'r') as file:
+    data = file.read().replace('\n', '')
+
+print(data)
+file.close()
     
     
     ## NOTE DICT VALUE GRABBING WORK LIKE DIS LOL 
@@ -39,14 +45,14 @@ def getName_Nearby(userLocation):
 
 def main():
     
-    place_id = getID_Nearby("33.721503,-117.947847")
+    place_id = getID_Nearby(data)
     placeData = populartimes.get_id(api_key, place_id)
     nearbyPopVal = (placeData["populartimes"][2]) ["data"][9]
 
    
 
     sys.stdout = open('nearINFO', 'w')
-    print(getName_Nearby("33.721503,-117.947847"), end=" - Popularity of: ")
+    print(getName_Nearby(data), end=" - Popularity of: ")
     print(nearbyPopVal)
 
 
