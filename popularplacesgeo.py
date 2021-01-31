@@ -1,32 +1,10 @@
 import populartimes
 import datetime
-
+import urllib, json, urllib.request
 api_key = "KEY"
-place_id = "ChIJl0znByfY3IAR-nRhF0Etzlw"
-
-    
-placeData = populartimes.get_id(api_key, place_id)
 currentDay = datetime.datetime.today().weekday()
 currentHour = datetime.datetime.now().hour 
 
-    
-
-def dataDays(index):
-
-    if(index == 0):
-        print("monday has popularity of: ", end="")
-    elif(index == 1):
-        print("chewsday has popularity of: ", end="")
-    elif(index == 2):
-        print("wed has popularity of: ", end="")
-    elif(index == 3):
-        print("thur has popularity of: ", end="")
-    elif(index == 4):
-        print("fri has popularity of: ", end="")
-    elif(index == 5):
-        print("sat has popularity of: ", end="")
-    elif(index == 6):
-        print("sun has popularity of: ", end="")  
     
     
     ## NOTE DICT VALUE GRABBING WORK LIKE DIS LOL 
@@ -36,31 +14,40 @@ def dataDays(index):
 
 
 
-def popularVal(day, hour):
-    return  ( (placeData["populartimes"][day]) ["data"][hour])
 
+def getID_Nearby(userLocation):
+    
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLocation + "&radius=1000&type=park&key=AIzaSyCELlWxGJ1mTz443EBYTip2eQYILy5eQTE"
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
 
-def dmgScaling():
-    if (popularVal(currentDay, currentHour) > 80):
-        print("highest risk")
-    elif (popularVal(currentDay, currentHour) > 45 and popularVal(currentDay, currentHour) < 80):
-        print("moderate risk")
-    elif (popularVal(currentDay, currentHour) < 45):
-        print("low risk")
-
-
-def geo():
-    ##dataDays(1)
-    print("For", placeData["name"], ", ", end="")
-    dataDays(currentDay)
-    print(popularVal(currentDay, currentHour), "right now.")
-    dmgScaling()
-
+    ##Parses dict to find ID of nearby park
+    nearbyPlaceID = ((data["results"][0])["place_id"])
+    return nearbyPlaceID
    
     
+def getName_Nearby(userLocation):
+
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLocation + "&radius=1000&type=park&key=AIzaSyCELlWxGJ1mTz443EBYTip2eQYILy5eQTE"
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+
+    nearbyPlaceName = ((data["results"][0])["name"])
+    return nearbyPlaceName
     
 
 
+def main():
+    
+    place_id = getID_Nearby("33.721503,-117.947847")
+    placeData = populartimes.get_id(api_key, place_id)
+    nearbyPopVal = (placeData["populartimes"][2]) ["data"][9]
 
-geo()
+    print(getName_Nearby("33.721503,-117.947847"), end=" - Popularity of: ")
+    print(nearbyPopVal)
+
+
+
+
+main()
     
