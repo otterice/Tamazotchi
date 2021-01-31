@@ -9,7 +9,7 @@ public class meat_crunch : MonoBehaviour
 
         Debug.Log("meat eat");
 
-        if (other.gameObject.name == "Petr hitbox") {
+        if (other.gameObject.name == "Petr") {
             GameObject m = Instantiate(meat_splatter) as GameObject;
             m.transform.position = transform.position;
 
