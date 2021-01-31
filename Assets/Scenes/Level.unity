@@ -2826,7 +2826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3201def7631fe8428a31adb6264fb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDetectionThreshold: 2
+  shakeDetectionThreshold: 1
 --- !u!4 &1693664251
 Transform:
   m_ObjectHideFlags: 0
