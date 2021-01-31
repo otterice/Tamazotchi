@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 0
   skinSprite: {fileID: 21300000, guid: 5aaa7e7bf1abf6f4f87c6ed04ff4958e, type: 3}
+  petrName: Default Skin
   skinPrice: 0

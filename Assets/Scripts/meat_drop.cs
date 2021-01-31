@@ -21,7 +21,12 @@ public class meat_drop : MonoBehaviour
 
     void DropMeat()
     {
-        Instantiate(meat, new Vector2(posX, posY), Quaternion.identity);
+        if (FindObjectOfType<Money>().GetMoney() == 0) {
+            return;
+        }
+        else {
+            Instantiate(meat, new Vector2(posX, posY), Quaternion.identity);
+        }
     }
 
 }

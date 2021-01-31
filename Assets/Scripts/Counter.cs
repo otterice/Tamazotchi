@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
     public Text steps;
+
+    public HealthBar hb;
     double stepCount = 0;
-    private void Start()
-    {
+
+    private void Awake() {
         Accelerometer.Instance.OnShake += WhenShake;
-        
+        stepCount = PlayerPrefs.GetInt("stepCountPref", 0);
+
     }
 
     private void OnDestroy()
@@ -25,7 +28,10 @@ public class Counter : MonoBehaviour
         stepCount += 0.052;
         int roundCount = Convert.ToInt32(stepCount);
         steps.text = "Steps: " + roundCount;
-        Debug.Log(stepCount);
+        PlayerPrefs.SetInt("stepCountPref", roundCount);
+        hb.walkToIncreaseLevel();
+
+
     }
 
 

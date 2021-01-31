@@ -92,7 +92,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateLevelBar() {
         float ratio = level / max;
-        if (level == 100) {
+        if (level >= 100) {
             money.UpdateMoney(characterLevel);
             characterLevel++;
             PlayerPrefs.SetFloat("levelPref", characterLevel);
@@ -102,6 +102,10 @@ public class HealthBar : MonoBehaviour
         PlayerPrefs.SetFloat("levelPercentPref", level);
         currentLevel.rectTransform.localScale = new Vector3(ratio, 1, 1);
         levelPercent.text = (ratio * 100).ToString("0") + '%';
+    }
+
+    public void walkToIncreaseLevel() {
+        level += characterLevel * 0.005f  + 0.10f;
     }
 
     void FeedThePet() {

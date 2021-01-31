@@ -486,8 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46a936691ea3984c91224f34dc651c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVel: 600
-  fallMulti: 150
+  jumpVel: 1400
+  fallMulti: 75
   lowJumpMulti: 2
   Petr: {fileID: 57866424}
 --- !u!1 &59187068
@@ -2814,6 +2814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steps: {fileID: 2070704415}
+  hb: {fileID: 717821375}
 --- !u!114 &1693664250
 MonoBehaviour:
   m_ObjectHideFlags: 0

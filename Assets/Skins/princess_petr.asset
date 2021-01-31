@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a6a2e92aee43124eb0707ffcb899962, type: 3}
-  m_Name: Anime_petr3
+  m_Name: princess_petr
   m_EditorClassIdentifier: 
-  skinID: 3
-  skinSprite: {fileID: 21300000, guid: 03c1d15ed6714c24abb4becf4b311069, type: 3}
-  petrName: Sailor Petr
-  skinPrice: 300
+  skinID: 8
+  skinSprite: {fileID: 21300000, guid: f692a9e310f7ad64db6b68d9fd3d1d0f, type: 3}
+  petrName: Princess Petr
+  skinPrice: 1200
