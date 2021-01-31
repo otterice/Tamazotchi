@@ -56,13 +56,10 @@ public class GPS : MonoBehaviour
 
         
 
-        while (true) {
-
-            Debug.Log(Input.location.lastData.longitude);
-            StreamWriter sw = new StreamWriter("../../LATLON.txt", true);
-            sw.WriteLine("Lat: " + Input.location.lastData.latitude + "  Lon: " + Input.location.lastData.longitude);
-            sw.Close();
-
+        while (true) {            
+            var sr = File.CreateText("LATLON.txt");
+            sr.WriteLine("Lat: " + Input.location.lastData.latitude + "  Lon: " + Input.location.lastData.longitude);
+            sr.Close();
 
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
             longitudeText.text = "Longitude: " + Input.location.lastData.longitude;
