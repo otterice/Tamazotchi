@@ -10,6 +10,7 @@ public class SkinInShop : MonoBehaviour
 
     public TextMeshProUGUI buttonText;
     public Image skinImage;
+    public Text title;
     
 
     public bool isSkinUnlocked;
