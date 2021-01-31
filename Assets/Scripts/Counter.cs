@@ -11,6 +11,7 @@ public class Counter : MonoBehaviour
     public HealthBar hb;
     double stepCount = 0;
 
+   
     private void Awake() {
         Accelerometer.Instance.OnShake += WhenShake;
         stepCount = PlayerPrefs.GetInt("stepCountPref", 0);
