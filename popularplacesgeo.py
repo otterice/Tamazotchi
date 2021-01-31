@@ -1,7 +1,7 @@
-import populartimes
-import datetime
-import urllib, json, urllib.request
-api_key = "KEY"
+import populartimes, datetime
+import urllib, urllib.request, json
+import sys
+api_key = "AIzaSyCELlWxGJ1mTz443EBYTip2eQYILy5eQTE"
 currentDay = datetime.datetime.today().weekday()
 currentHour = datetime.datetime.now().hour 
 
@@ -43,6 +43,9 @@ def main():
     placeData = populartimes.get_id(api_key, place_id)
     nearbyPopVal = (placeData["populartimes"][2]) ["data"][9]
 
+   
+
+    sys.stdout = open('nearINFO', 'w')
     print(getName_Nearby("33.721503,-117.947847"), end=" - Popularity of: ")
     print(nearbyPopVal)
 
