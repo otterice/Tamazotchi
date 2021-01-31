@@ -25,6 +25,7 @@ public class meat_drop : MonoBehaviour
             return;
         }
         else {
+            Debug.Log("funny lil meat");
             Instantiate(meat, new Vector2(posX, posY), Quaternion.identity);
         }
     }
