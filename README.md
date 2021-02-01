@@ -1,5 +1,7 @@
 # Tamazotchi
-## HackUCI 2021 Winner
+A Unity built iOS app that utilizes Google's API to disincentivize users from entering large crowds. This is also a spin on the hit franchise, Tamagotchi, where players can train their 'Tamazotchi' through footstep tracking.
+
+A HackUCI 2021 Submission
  
 ## Inspiration
 During quarantine the members of our team often preferred days spent indoors for fear of COVID and for lack of better word, laziness. We decided to make this app in order to guarantee that its users are both motivated in their daily exercise, and safe during these difficult times. What better motivation than playing a spin-off of the beloved Tamagotchi with UCIs mascot as the figurehead? 
