@@ -1,5 +1,5 @@
 # Tamazotchi
-##HackUCI 2021 Winner
+## HackUCI 2021 Winner
  
 ## Inspiration
 During quarantine the members of our team often preferred days spent indoors for fear of COVID and for lack of better word, laziness. We decided to make this app in order to guarantee that its users are both motivated in their daily exercise, and safe during these difficult times. What better motivation than playing a spin-off of the beloved Tamagotchi with UCIs mascot as the figurehead? 
