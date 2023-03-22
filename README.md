@@ -1,6 +1,10 @@
 # Tamazotchi
 A Unity built iOS app that utilizes Google's API to disincentivize users from entering large crowds. This is also a spin on the hit franchise, Tamagotchi, where players can train their 'Tamazotchi' through footstep tracking.
 
+https://devpost.com/software/tamazotchi
+
+![image text](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/375/976/datas/gallery.jpg)
+
 A HackUCI 2021 Submission
  
 ## Inspiration
